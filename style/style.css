@@ -96,6 +96,7 @@ body {
 .tab {
 	
 	background-color: white;
+	margin-top: 100vh;
 	
 }
 
@@ -136,5 +137,29 @@ body {
 	
 	width: 50%;
 	height: 50vh;
+	
+}
+
+.nav {
+	
+	position: fixed;
+	right: 0px;
+	z-index: 9999999;
+	margin: 10% 8% 0 0;
+	font-size: 150%;
+	
+	padding: 1% 2%;
+	
+}
+
+.nav_text {
+	
+	transition: 0.3s;
+	
+}
+
+.active {
+	
+	margin: 30px 0;
 	
 }

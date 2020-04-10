@@ -5,15 +5,19 @@
 		
 		<link rel="stylesheet" href="./style/style.css" type="text/css">
 		<script src="./js/script.js" defer> </script>
+		<script src="./js/nav.js" defer> </script>
 		<meta charset="utf-8">
+		<title> Raspberry Pi </title>
 		
 	</head>
 	
-	<body>
+	<body onscroll="control()">
+		
+		<div class="nav"> <div id="start" class="nav_text"> Start </div> <div id="info" class="nav_text"> Info </div> <div class="nav_text"> Test </div> </div>
 		
 		<div class="on_top" onclick="scroll_to_top()"> </div>
 		
-		<center> <div class="form_text"> Raspberry Pi </div> </center>
+		<center> <div class="form_text" id="start_con"> Raspberry Pi </div> </center>
 		
 		<div class="form_bottom"> </div>
 		<div class="form_middle"> </div>
@@ -26,7 +30,7 @@
 				
 				<tr>
 					
-					<td class="table_td">
+					<td class="table_td" id="info_con">
 						
 						<center>
 						
@@ -67,6 +71,41 @@
 			</table>
 
 		</div>
+		
+		<div class="tab" id="info_con">
+			Test
+		</div>
+		
+		<script>
+			
+			var start = document.getElementById("start_con");
+			var info = document.getElementById("info_con");
+
+			var bodyRect = document.body.getBoundingClientRect(),
+			elemRect = start.getBoundingClientRect(),
+			start_offset   = elemRect.top - bodyRect.top;
+			
+			var bodyRect = document.body.getBoundingClientRect(),
+			elemRect = info.getBoundingClientRect(),
+			info_offset   = elemRect.top - bodyRect.top;
+			
+			function control() {
+			
+				if(window.pageYOffset > start_offset && window.pageYOffset < info_offset) {
+				
+					document.getElementById("start").classList.add("active");
+					document.getElementById("info").classList.remove("active");
+				
+				} else if(window.pageYOffset > info_offset) {
+					
+					document.getElementById("start").classList.remove("active");
+					document.getElementById("info").classList.add("active");
+					
+				}
+			
+			}
+			
+		</script>
 		
 	</body>
 	
